@@ -556,6 +556,11 @@
             "description": "The timestamp when the alarm log is produced by the IoT (e.g., millisecond from 2023-01-01). BMS must automatically sync its clock. CAN subindex = 2001",
             "example": 4500012116370
           },
+          "2": {
+            "type": "string",
+            "description": "The timezone of the current log.",
+            "example": "+0100"
+          },
           "18": {
             "type": "string",
             "description": "MPL Fault Codes. It is a binary from BMS that can be translated into Alarm code, Severity, SOC, and Phase in the cloud. IoT just passes this info. CAN subindex = 2000, 4527, 4528, 4529, 4530",
@@ -570,6 +575,11 @@
             "type": "integer",
             "description": "The timestamp when the config log is produced by the IoT (e.g., millisecond from 2023-01-01). BMS must automatically sync its clock. CAN subindex = 2001",
             "example": 4500012116370
+          },
+          "2": {
+            "type": "string",
+            "description": "The timezone of the current log.",
+            "example": "+0100"
           },
           "19": {
             "type": "integer",
@@ -776,178 +786,183 @@
           "45": {
             "type": "integer",
             "format": "int32",
-            "description": "High current threshold. CAN subindex = 4009_04"
+            "description": "Max allowed charge C-rate"
           },
           "46": {
             "type": "integer",
             "format": "int32",
-            "description": "High current release. CAN subindex = 4009_05"
+            "description": "High current threshold. CAN subindex = 4009_04"
           },
           "47": {
             "type": "integer",
             "format": "int32",
-            "description": "Charger CAN Node ID."
+            "description": "High current release. CAN subindex = 4009_05"
           },
           "48": {
             "type": "integer",
             "format": "int32",
-            "description": "Charger detected through CAN for AGV applications. CAN subindex = 4009_01"
+            "description": "Charger CAN Node ID."
           },
           "49": {
             "type": "integer",
             "format": "int32",
-            "description": "Timer to battery shut off. Unit = minutes"
+            "description": "Charger detected through CAN for AGV applications. CAN subindex = 4009_01"
           },
           "50": {
             "type": "integer",
             "format": "int32",
-            "description": "Threshold SOC for battery shut off."
+            "description": "Timer to battery shut off. Unit = minutes"
           },
           "51": {
             "type": "integer",
             "format": "int32",
-            "description": "CAN kbps of master. CAN subindex = 20F0_0C"
+            "description": "Threshold SOC for battery shut off."
           },
           "52": {
             "type": "integer",
             "format": "int32",
-            "description": "CAN kbps of slave."
+            "description": "CAN kbps of master. CAN subindex = 20F0_0C"
           },
           "53": {
             "type": "integer",
             "format": "int32",
-            "description": "Max hardware discharge regen current. CAN subindex = 4009_0A"
+            "description": "CAN kbps of slave."
           },
           "54": {
             "type": "integer",
             "format": "int32",
-            "description": "SP charge C-rate"
+            "description": "Max hardware discharge regen current. CAN subindex = 4009_0A"
           },
           "55": {
             "type": "integer",
             "format": "int32",
-            "description": "SP charge time"
+            "description": "SP charge C-rate"
           },
           "56": {
             "type": "integer",
             "format": "int32",
-            "description": "Charger strategy. CAN subindex = 4009_0E"
+            "description": "SP charge time"
           },
           "57": {
             "type": "integer",
             "format": "int32",
-            "description": "Discharge regenerative C-rate."
+            "description": "Charger strategy. CAN subindex = 4009_0E"
           },
           "58": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum charge current limited by hardware. CAN subindex = 4009_0A"
+            "description": "Discharge regenerative C-rate."
           },
           "59": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum aux discharge regenerative current. CAN subindex = 4009_0B"
+            "description": "Maximum charge current limited by hardware. CAN subindex = 4009_0A"
           },
           "60": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum aux charge current. CAN subindex = 4009_0C"
+            "description": "Maximum aux discharge regenerative current. CAN subindex = 4009_0B"
           },
           "61": {
             "type": "integer",
             "format": "int32",
-            "description": "CAN Node ID. Node ID of CANopen bus"
+            "description": "Maximum aux charge current. CAN subindex = 4009_0C"
           },
           "62": {
             "type": "integer",
             "format": "int32",
-            "description": "CAN sensor amount. How many CAN sensors."
+            "description": "CAN Node ID. Node ID of CANopen bus"
           },
           "63": {
             "type": "integer",
             "format": "int32",
-            "description": "I/O expansion type"
+            "description": "CAN sensor amount. How many CAN sensors."
           },
           "64": {
             "type": "integer",
             "format": "int32",
-            "description": "Type of heater used in battery"
+            "description": "I/O expansion type"
           },
           "65": {
             "type": "integer",
             "format": "int32",
-            "description": "Type of cells used in battery. CAN subindex = 4000_05"
+            "description": "Type of heater used in battery"
           },
           "66": {
             "type": "integer",
             "format": "int32",
-            "description": "Heater SOC and number of heaters"
+            "description": "Type of cells used in battery. CAN subindex = 4000_05"
           },
           "67": {
             "type": "integer",
             "format": "int32",
-            "description": "Pin 12V select"
+            "description": "Heater SOC and number of heaters"
           },
           "68": {
             "type": "integer",
             "format": "int32",
-            "description": "Configuration of contactor"
+            "description": "Pin 12V select"
           },
           "69": {
             "type": "integer",
             "format": "int32",
-            "description": "Heater threshold max / min value. CAN subindex = 4009_07, 4009_08"
+            "description": "Configuration of contactor"
           },
           "70": {
             "type": "integer",
             "format": "int32",
-            "description": "Multiple BMS configuration"
+            "description": "Heater threshold max / min value. CAN subindex = 4009_07, 4009_08"
           },
           "71": {
             "type": "integer",
             "format": "int32",
-            "description": "Charge preferred Tmax offset"
+            "description": "Multiple BMS configuration"
           },
           "72": {
             "type": "integer",
             "format": "int32",
-            "description": "Charge cell voltage target"
+            "description": "Charge preferred Tmax offset"
           },
           "73": {
             "type": "integer",
             "format": "int32",
-            "description": "Discharge cell voltage target"
+            "description": "Charge cell voltage target"
           },
           "74": {
             "type": "integer",
             "format": "int32",
-            "description": "Set temperature for heater. CAN subindex = 4009_0D"
+            "description": "Discharge cell voltage target"
           },
           "75": {
             "type": "integer",
             "format": "int32",
-            "description": "Set gap time"
+            "description": "Set temperature for heater. CAN subindex = 4009_0D"
           },
           "76": {
-            "type": "string",
-            "description": "BMS ID"
-          },
-          "77": {
             "type": "integer",
             "format": "int32",
-            "description": "OEM part number base. CAN subindex = 4523_01"
+            "description": "Set gap time"
+          },
+          "77": {
+            "type": "string",
+            "description": "BMS ID"
           },
           "78": {
             "type": "integer",
             "format": "int32",
-            "description": "OEM part number revision. CAN subindex = 4523_02"
+            "description": "OEM part number base. CAN subindex = 4523_01"
           },
           "79": {
             "type": "integer",
             "format": "int32",
-            "description": "Gain calibrate current 1. CAN subindex = 400D_02"
+            "description": "OEM part number revision. CAN subindex = 4523_02"
           },
           "80": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Gain calibrate current 1. CAN subindex = 400D_02"
+          },
+          "81": {
             "type": "integer",
             "format": "int32",
             "description": "Limit check. CAN subindex = 4011_01"
